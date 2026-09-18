@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chrome Dino Csalás Magyarázó</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Chrome Dino Csalások Gyűjteménye</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -15,155 +13,405 @@
         .code-font {
             font-family: 'Fira Code', monospace;
         }
+        .view-section {
+            display: none;
+        }
+        .view-section.active {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 h-full flex flex-col selection:bg-emerald-500 selection:text-white">
 
     <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('home')">
                 <div class="bg-emerald-500/15 p-2 rounded-xl border border-emerald-500/30 text-emerald-400">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg tracking-tight">Dino Hack Magyarázó</h1>
-                    <p class="text-xs text-slate-400">Ismerd meg a Chrome Dínó játék csalásának működését</p>
+                    <h1 class="font-bold text-lg tracking-tight hover:text-emerald-400 transition-colors">Dino Cheat Dashboard</h1>
+                    <p class="text-xs text-slate-400">Teljes Chrome Dínó konzol parancs gyűjtemény</p>
                 </div>
             </div>
-            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Oktató jellegű
-            </span>
+            <button onclick="switchView('home')" id="home-nav-btn" class="hidden items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 transition-all border border-slate-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span>Vissza a főoldalra</span>
+            </button>
         </div>
     </header>
 
-    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 space-y-10">
-        
-        <!-- Intro Hero -->
-        <section class="text-center space-y-3 pt-4">
-            <div class="inline-block bg-slate-800/80 border border-slate-700/60 rounded-full px-4 py-1 text-xs text-slate-300 mb-2">
-                🎮 Chrome Dínó Játék (T-Rex Runner)
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 space-y-8">
+
+        <section id="view-home" class="view-section active space-y-8">
+            <div class="text-center space-y-3 pt-4">
+                <div class="inline-block bg-slate-800/80 border border-slate-700/60 rounded-full px-4 py-1 text-xs text-slate-300 mb-2">
+                    🦖 Chrome T-Rex Runner Konzol Csalások
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    Válassz egy konzol parancsot a részletes magyarázathoz
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+                    Az alábbi interaktív kártyák segítségével megismerheted mind a 4 népszerű Dínó fejlesztői parancsot, azok működését, és azonnal ki is másolhatod őket.
+                </p>
             </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-                Hogyan működik a halhatatlanság kód?
-            </h2>
-            <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-                Ez az egyszerűnek tűnő egysoros JavaScript kód képes arra, hogy megállítsa a Dínó halálát okozó függvényt, így végtelen pontszámot érhetsz el.
-            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div onclick="switchView('immortality')" class="group bg-slate-800/40 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 space-y-4 cursor-pointer transition-all hover:bg-slate-800/80 hover:shadow-xl hover:shadow-emerald-500/5 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">1. Halhatatlanság</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A játék vége (game over) funkció felülírása, hogy a dínó sebezhetetlenné váljon.
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs text-emerald-400 font-medium">
+                        <span>Részletek megtekintése</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div onclick="switchView('speed')" class="group bg-slate-800/40 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 space-y-4 cursor-pointer transition-all hover:bg-slate-800/80 hover:shadow-xl hover:shadow-emerald-500/5 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">2. Sebesség növelése</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A T-Rex futási sebességének dinamikus módosítása tetszőleges értékre.
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs text-emerald-400 font-medium">
+                        <span>Részletek megtekintése</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div onclick="switchView('score')" class="group bg-slate-800/40 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 space-y-4 cursor-pointer transition-all hover:bg-slate-800/80 hover:shadow-xl hover:shadow-emerald-500/5 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">3. Pontszám módosítása</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A távolságon alapuló pontszámláló manipulálása képlettel.
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs text-emerald-400 font-medium">
+                        <span>Részletek megtekintése</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div onclick="switchView('restore')" class="group bg-slate-800/40 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 space-y-4 cursor-pointer transition-all hover:bg-slate-800/80 hover:shadow-xl hover:shadow-emerald-500/5 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">4. Halhatatlanság leállítása</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Az eredeti játékvége (game over) logika visszaállítása.
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between text-xs text-emerald-400 font-medium">
+                        <span>Részletek megtekintése</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Code Block Section -->
-        <section class="bg-slate-950 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
-            <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+
+        <section id="view-immortality" class="view-section space-y-8">
+            <div class="space-y-3">
                 <div class="flex items-center space-x-2">
-                    <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                    <span class="text-xs text-slate-400 ml-2 code-font">console-snippet.js</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold rounded-md">Alap parancs</span>
+                    <span class="text-slate-400 text-xs">• Halhatatlanság</span>
                 </div>
-                <button id="copy-btn" onclick="copySnippet()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-xs font-medium text-slate-200 transition-all border border-slate-700">
-                    <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                <h2 class="text-3xl font-extrabold text-white">Halhatatlanság aktiválása</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Ezzel a kóddal elmentheted az eredeti játékvége függvényt, és egy üres függvénnyel helyettesítheted, így a kaktuszok és madarak nem tudnak megölni.
+                </p>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        <span class="text-xs text-slate-400 ml-2 code-font">immortality-hack.js</span>
+                    </div>
+                    <button onclick="copyCode('nativeGameOver = Runner.prototype.gameOver;\nRunner.prototype.gameOver = function() {};', this)" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-xs font-medium text-slate-200 transition-all border border-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <span>Kód másolása</span>
+                    </button>
+                </div>
+                <div class="p-4 sm:p-6 overflow-x-auto">
+                    <pre class="code-font text-xs sm:text-sm text-emerald-400 leading-relaxed"><code>nativeGameOver = Runner.prototype.gameOver;
+Runner.prototype.gameOver = function() {};</code></pre>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2">Részletes magyarázat</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-emerald-400 code-font">nativeGameOver = Runner.prototype.gameOver;</span>
+                        <h4 class="font-semibold text-white">Eredeti funkció mentése</h4>
+                        <p class="text-slate-300 text-sm">Eltárolja a böngésző memóriájában az eredeti ütközéskezelőt, hogy később vissza lehessen állítani.</p>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-emerald-400 code-font">Runner.prototype.gameOver = function() {};</span>
+                        <h4 class="font-semibold text-white">Üres függvény beállítása</h4>
+                        <p class="text-slate-300 text-sm">Felülírja a játékvéget egy üres blokkal, így ütközéskor semmi sem történik, és a dínó tovább fut.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-start">
+                <button onclick="switchView('home')" class="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-medium text-slate-200 border border-slate-700 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
-                    <span id="copy-text">Kód másolása</span>
+                    <span>Vissza a főoldalra</span>
                 </button>
             </div>
-            <div class="p-4 sm:p-6 overflow-x-auto">
-                <pre class="code-font text-xs sm:text-sm text-emerald-400 leading-relaxed"><code id="code-block">javascript:nativeGameOver = Runner.prototype.gameOver; Runner.prototype.gameOver = function() {};</code></pre>
+        </section>
+
+        <section id="view-speed" class="view-section space-y-8">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold rounded-md">1. Parancs</span>
+                    <span class="text-slate-400 text-xs">• Gyorsítás</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">Sebesség növelése</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Ezzel a paranccsal közvetlenül beállíthatod a játék sebességét vezérlő belső metódust.
+                </p>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        <span class="text-xs text-slate-400 ml-2 code-font">speed-hack.js</span>
+                    </div>
+                    <button onclick="copyCode('Runner.instance_.setSpeed(20);', this)" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-xs font-medium text-slate-200 transition-all border border-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <span>Kód másolása</span>
+                    </button>
+                </div>
+                <div class="p-4 sm:p-6 overflow-x-auto">
+                    <pre class="code-font text-xs sm:text-sm text-blue-400 leading-relaxed"><code>Runner.instance_.setSpeed(20);</code></pre>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2">Részletes magyarázat</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-blue-400 code-font">Runner.instance_</span>
+                        <h4 class="font-semibold text-white">Futó játékpéldány</h4>
+                        <p class="text-slate-300 text-sm">Hivatkozik az aktív és jelenleg futó Chrome Dino játék példányára a böngésző memóriájában.</p>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-blue-400 code-font">setSpeed(20)</span>
+                        <h4 class="font-semibold text-white">Sebesség beállító metódus</h4>
+                        <p class="text-slate-300 text-sm">Megváltoztatja a szimuláció sebességét. A <code class="text-blue-300 code-font text-xs bg-slate-900 px-1 py-0.5 rounded">20</code> helyére tetszőleges száértéket írhatsz (pl. 10, 50).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-start">
+                <button onclick="switchView('home')" class="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-medium text-slate-200 border border-slate-700 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span>Vissza a főoldalra</span>
+                </button>
             </div>
         </section>
 
-        <section class="space-y-6">
-            <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3 flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
-                <span>Részletes magyarázat (részenként)</span>
-            </h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Part 1 -->
-                <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-3 hover:border-slate-700 transition-all">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-blue-500/10 text-blue-400 rounded-md border border-blue-500/20 code-font">1. Rész</span>
-                        <span class="text-xs text-slate-400 code-font">javascript:</span>
-                    </div>
-                    <h4 class="font-semibold text-white text-base">Bookmarklet protokolleszköz</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Ez a prefixum jelzi a böngészőnek, hogy a szöveg nem egy hagyományos weboldal URL-je, hanem egy közvetlenül futtatható JavaScript parancs (ezt nevezzük bookmarkletnek).
-                    </p>
+        <section id="view-score" class="view-section space-y-8">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold rounded-md">2. Parancs</span>
+                    <span class="text-slate-400 text-xs">• Pontszám</span>
                 </div>
+                <h2 class="text-3xl font-extrabold text-white">Pontszám módosítása</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Ezzel a képlettel közvetlenül manipulálhatod a dínó által megfutott távolságot, ami a pontszámot határozza meg.
+                </p>
+            </div>
 
-                <!-- Part 2 -->
-                <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-3 hover:border-slate-700 transition-all">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-amber-500/10 text-amber-400 rounded-md border border-amber-500/20 code-font">2. Rész</span>
-                        <span class="text-xs text-slate-400 code-font">nativeGameOver = ...</span>
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        <span class="text-xs text-slate-400 ml-2 code-font">score-hack.js</span>
                     </div>
-                    <h4 class="font-semibold text-white text-base">Eredeti funkció mentése</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Eltárolja a <code class="text-amber-300 code-font text-xs bg-slate-900 px-1.5 py-0.5 rounded">Runner.prototype.gameOver</code> eredeti függvényét egy változóban (<code class="text-amber-300 code-font text-xs bg-slate-900 px-1.5 py-0.5 rounded">nativeGameOver</code>). Így a játék eredeti logikája nem vész el teljesen, később akár vissza is állítható.
-                    </p>
+                    <button onclick="copyCode('Runner.instance_.distanceRan = 12345 / 0.025;', this)" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-xs font-medium text-slate-200 transition-all border border-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <span>Kód másolása</span>
+                    </button>
                 </div>
+                <div class="p-4 sm:p-6 overflow-x-auto">
+                    <pre class="code-font text-xs sm:text-sm text-amber-400 leading-relaxed"><code>Runner.instance_.distanceRan = 12345 / 0.025;</code></pre>
+                </div>
+            </div>
 
-                <!-- Part 3 -->
-                <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-3 hover:border-slate-700 transition-all">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded-md border border-emerald-500/20 code-font">3. Rész</span>
-                        <span class="text-xs text-slate-400 code-font">Runner.prototype.gameOver = ...</span>
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2">Részletes magyarázat</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-amber-400 code-font">distanceRan</span>
+                        <h4 class="font-semibold text-white">Megfutott távolság</h4>
+                        <p class="text-slate-300 text-sm">A játék belső tulajdonsága, amely a dínó által bejárt virtuális utat méri.</p>
                     </div>
-                    <h4 class="font-semibold text-white text-base">A függvény felülírása (Mocking)</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Átírja a játék objektumprototípusának <code class="text-emerald-300 code-font text-xs bg-slate-900 px-1.5 py-0.5 rounded">gameOver</code> metódusát. Ez a metódus felelős azért, hogy leállítsa a játékot, amikor a dínó akadályba ütközik.
-                    </p>
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-amber-400 code-font">12345 / 0.025</span>
+                        <h4 class="font-semibold text-white">A pontszám képlete</h4>
+                        <p class="text-slate-300 text-sm">Az <code class="text-amber-300 code-font text-xs bg-slate-900 px-1 py-0.5 rounded">12345</code> helyére a kívánt pontszámot írhatod, amit a motor átvált a belső távolság-egységre.</p>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Part 4 -->
-                <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-3 hover:border-slate-700 transition-all">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-rose-500/10 text-rose-400 rounded-md border border-rose-500/20 code-font">4. Rész</span>
-                        <span class="text-xs text-slate-400 code-font">function() {}</span>
-                    </div>
-                    <h4 class="font-semibold text-white text-base">Üres függvény (No-op)</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Egy üres névtelen függvényt rendel a halál funkcióhoz, ami azt jelenti, hogy amikor el kellene veszíteni a játékot, a kód <strong>semmit sem csinál</strong>. Nincs ütközésvizsgálat, a dínó simán átsiklik mindenen!
-                    </p>
-                </div>
+            <div class="pt-4 flex justify-start">
+                <button onclick="switchView('home')" class="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-medium text-slate-200 border border-slate-700 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span>Vissza a főoldalra</span>
+                </button>
             </div>
         </section>
 
-        <section class="bg-slate-800/30 border border-slate-800 rounded-2xl p-6 space-y-4">
-            <h3 class="text-lg font-bold text-white flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Hogyan tudod kipróbálni?</span>
-            </h3>
-            <ol class="list-decimal list-inside space-y-2 text-slate-300 text-sm leading-relaxed">
-                <li>Nyisd meg a Chrome böngésződet internetkapcsolat nélkül (vagy látogass el a <code class="text-emerald-400 code-font text-xs bg-slate-900 px-1.5 py-0.5 rounded">chrome://dino</code> címre).</li>
-                <li>Nyomd meg a <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs code-font text-slate-200">F12</kbd> (vagy <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs code-font text-slate-200">Ctrl + Shift + J</kbd> / <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs code-font text-slate-200">Cmd + Option + J</kbd> Mac-en) billentyűkombinációt a Fejlesztői Eszközök (Console) megnyitásához.</li>
-                <li>Másold ki a fenti kódrészletet (<code class="text-emerald-400 code-font text-xs">javascript:</code> rész nélkül, ha közvetlen a kontextusba illeszted be, vagy teljes egészében bookmarkletként).</li>
-                <li>Illeszd be a konzolba, majd nyomj <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs code-font text-slate-200">Enter</kbd> tüt.</li>
-                <li>Nyomj egy <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-xs code-font text-slate-200">Space</kbd> billentyűt a játék indításához, és élvezd a végtelen szaladást!</li>
-            </ol>
+
+        <section id="view-restore" class="view-section space-y-8">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-2">
+                    <span class="px-2.5 py-1 bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs font-semibold rounded-md">3. Parancs</span>
+                    <span class="text-slate-400 text-xs">• Visszaállítás</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">Halhatatlanság leállítása (Visszaállítás)</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Ha megunod a csalást, és szeretnéd visszakapni az eredeti játékszabályokat, ezzel a paranccsal visszaállíthatod a halál funkciót.
+                </p>
+            </div>
+
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        <span class="text-xs text-slate-400 ml-2 code-font">restore-hack.js</span>
+                    </div>
+                    <button onclick="copyCode('Runner.prototype.gameOver = originalGameOver;', this)" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-xs font-medium text-slate-200 transition-all border border-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <span>Kód másolása</span>
+                    </button>
+                </div>
+                <div class="p-4 sm:p-6 overflow-x-auto">
+                    <pre class="code-font text-xs sm:text-sm text-rose-400 leading-relaxed"><code>Runner.prototype.gameOver = originalGameOver;</code></pre>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-2">Részletes magyarázat</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-rose-400 code-font">Runner.prototype.gameOver</span>
+                        <h4 class="font-semibold text-white">Eredeti prototípus metódus</h4>
+                        <p class="text-slate-300 text-sm">Ez a dínó prototípusának az a funkciója, amely az ütközéseket és a játék végét kezeli.</p>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 space-y-2">
+                        <span class="text-xs font-semibold text-rose-400 code-font">originalGameOver</span>
+                        <h4 class="font-semibold text-white">Mentett referencia</h4>
+                        <p class="text-slate-300 text-sm">Az a korábban eltárolt változó, amely az eredeti függvényt őrzi, így az újrahozzárendeléssel a játék ismét véget érhet ütközéskor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-start">
+                <button onclick="switchView('home')" class="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-medium text-slate-200 border border-slate-700 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span>Vissza a főoldalra</span>
+                </button>
+            </div>
         </section>
 
     </main>
 
     <footer class="border-t border-slate-800 bg-slate-900/60 mt-12 py-6 text-center text-xs text-slate-500">
-        <p>Készült oktatási és bemutatási céllal. HTML & Tailwind CSS alapú egyoldalas webalkalmazás.</p>
+        <p>Chrome Dino Multi-View Cheat Guide • Készült oktatási és interaktív bemutatási céllal.</p>
     </footer>
 
-    <!-- JavaScript for copy functionality -->
+
     <script>
-        function copySnippet() {
-            const codeText = "javascript:nativeGameOver = Runner.prototype.gameOver; Runner.prototype.gameOver = function() {};";
-            
-            // Fallback copy mechanism for iframe constraints
+        function switchView(viewName) {
+            const views = document.querySelectorAll('.view-section');
+            views.forEach(v => v.classList.remove('active'));
+
+            const target = document.getElementById('view-' + viewName);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            const homeNavBtn = document.getElementById('home-nav-btn');
+            if (viewName === 'home') {
+                homeNavBtn.classList.add('hidden');
+                homeNavBtn.classList.remove('flex');
+            } else {
+                homeNavBtn.classList.remove('hidden');
+                homeNavBtn.classList.add('flex');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function copyCode(codeText, buttonElement) {
             const textArea = document.createElement("textarea");
             textArea.value = codeText;
-            textArea.style.position = "fixed";  // Avoid scrolling to bottom
+            textArea.style.position = "fixed";
             document.body.appendChild(textArea);
             textArea.focus();
             textArea.select();
@@ -171,41 +419,27 @@
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    showSuccessFeedback();
-                } else {
-                    showErrorFeedback();
+                    const originalHTML = buttonElement.innerHTML;
+                    buttonElement.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-white">Másolva!</span>
+                    `;
+                    buttonElement.classList.remove('bg-slate-800', 'border-slate-700');
+                    buttonElement.classList.add('bg-emerald-600', 'border-emerald-500');
+
+                    setTimeout(() => {
+                        buttonElement.innerHTML = originalHTML;
+                        buttonElement.classList.remove('bg-emerald-600', 'border-emerald-500');
+                        buttonElement.classList.add('bg-slate-800', 'border-slate-700');
+                    }, 2000);
                 }
             } catch (err) {
-                showErrorFeedback();
+                console.error('Copy failed', err);
             }
 
             document.body.removeChild(textArea);
-        }
-
-        function showSuccessFeedback() {
-            const copyBtn = document.getElementById('copy-btn');
-            const copyText = document.getElementById('copy-text');
-            const copyIcon = document.getElementById('copy-icon');
-
-            copyText.textContent = "Sikeres másolás!";
-            copyBtn.classList.remove('bg-slate-800', 'border-slate-700');
-            copyBtn.classList.add('bg-emerald-600', 'border-emerald-500', 'text-white');
-            copyIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />';
-
-            setTimeout(() => {
-                copyText.textContent = "Kód másolása";
-                copyBtn.classList.remove('bg-emerald-600', 'border-emerald-500', 'text-white');
-                copyBtn.classList.add('bg-slate-800', 'border-slate-700');
-                copyIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />';
-            }, 2000);
-        }
-
-        function showErrorFeedback() {
-            const copyText = document.getElementById('copy-text');
-            copyText.textContent = "Hiba a másoláskor!";
-            setTimeout(() => {
-                copyText.textContent = "Kód másolása";
-            }, 2000);
         }
     </script>
 </body>
